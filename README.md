@@ -71,7 +71,7 @@ This workflow makes use of singularity containers available through [State Publi
 
 ## Setup config, samples and cluster files
 
-**_If you are just testing this pipeline, the config and sample files are already loaded with test data, so you do not need to make any additional changes to them. However, it is a good idea to change the prefix (name of your output folder) in the config file to give you an idea of what variables need to be modified when running your own samples on QCD._**
+**_If you are just testing this pipeline, the config and sample files are already loaded with test data, so you do not need to make any additional changes to them. However, it is a good idea to change the prefix (name of your output folder) in the config file to give you an idea of what variables need to be modified when running your own samples on popQCD._**
 
 ### Config
 As an input, the snakemake file takes a config file where you can set the path to `samples.csv`, path to your raw sequencing reads, path to adapter fasta file etc. Instructions on how to modify `config/config.yaml` is found in `config.yaml`. 
@@ -135,7 +135,7 @@ snakemake -s workflow/popQCD.smk -p --use-conda --use-singularity --conda-fronte
 ```
 > Submit popQCD as a batch job (**reccommended**)
 
-Change these `SBATCH` commands: `--job-name` to a more descriptive name like run_popQCD, `--mail-user` to your email address, `--time` depending on the number of samples you have (should be more than what you specified in `cluster.json`). Feel free to make changes to the other flags if you are comfortable doing so. Once you have made the necessary changes, save the below script as `run_QCD.sbat`. Don't forget to submit QCD to Slurm! `sbatch bash_script_to_run_popQCD.sbat`.
+Change these `SBATCH` commands: `--job-name` to a more descriptive name like run_popQCD, `--mail-user` to your email address, `--time` depending on the number of samples you have (should be more than what you specified in `cluster.json`). Feel free to make changes to the other flags if you are comfortable doing so. Once you have made the necessary changes, save the below script as `run_popQCD.sbat`. Don't forget to submit to Slurm! `sbatch bash_script_to_run_popQCD.sbat`.
 
 ```
 #!/bin/bash
