@@ -1,0 +1,43 @@
+# Configuration settings for Snakemake
+
+# Relative path where your samples are found
+samples: config/samples.csv
+
+# Path to your raw sequencing reads  
+pop_data: /nfs/turbo/umms-esnitkin/Project_Rush_KPC_LTACH/Sequence_data/illumina_fastq_pop/2025-02-24_Plate1/raw_fastq
+
+# Directory prefix where the outputs will be saved to
+# Rename this to your preferred naming convention with this format:year-month-day_Project_Name_pubQCD
+prefix: 2025-06-09_Project_Test_Pipeline_popQCD
+
+# Cores used for busco and trimmomatic
+# Optional to change this
+ncores: 4
+
+# Command line parameters for trimmomatic tool
+# Change according to your sequence type
+# If your adapter file is not present in the adapter directory, 
+# Please add the appropriate file to the adapters folder
+adapter_file: config/adapters/combined_Adaptors.fa
+seed_mismatches: 2
+palindrome_clipthreshold: 30
+simple_clipthreshold: 10
+minadapterlength: 8
+keep_both_reads: true
+window_size: 4
+window_size_quality: 20
+minlength: 40
+headcrop_length: 0
+
+# Bowtie2 database
+# Optional to change this unless you have a database of your own
+bowtie2_db: /nfs/turbo/umms-esnitkin/database/bowtie2_db
+
+# Optional to change this unless you have a kraken database of your own
+# kraken_db: /nfs/turbo/umms-esnitkin/database/k2_standard_eupath_20201202/
+# /nfs/esnitkin/bin_group/database/k2_standard_20230605/ 
+# add new database
+
+# bwa_db: /nfs/turbo/umms-esnitkin/database/bwa_db/UHGG_reps_bwa_index
+
+# Feel free to remove the comments after you have customized the file.
